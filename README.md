@@ -14,7 +14,11 @@ Kubernetes · RKE2 · K3s · ArgoCD · Terraform / OpenTofu · Ansible · AWS ·
 
 ### Featured
 
-**[Clokr](https://github.com/sebastianzabel/clokr)**: My agentic engineering testbed. Claude Code writes all of the code; I own architecture, requirements, reviews and quality. The result is a multi-tenant app for time tracking, absences and shift planning under German labor law (TypeScript, Prisma, PostgreSQL). What keeps it honest: module boundaries and tenant isolation enforced at build time, signed releases, and a simulation environment where bots use the app and a nightly invariant checker files issues.
+**[Clokr](https://github.com/sebastianzabel/clokr)**: My agentic engineering testbed. Claude Code writes all of the code; I own architecture, requirements, reviews and quality. The result is a multi-tenant app for time tracking, absences and shift planning under German labor law (TypeScript, Prisma, PostgreSQL). What keeps it honest:
+
+- [Module boundaries](https://github.com/sebastianzabel/clokr/blob/main/docs/adr/0002-vier-kontexte-und-unterbau.md) [enforced at build time](https://github.com/sebastianzabel/clokr/blob/main/eslint.boundaries.mjs), and a [tenant-scoping gate](https://github.com/sebastianzabel/clokr/blob/main/apps/api/scripts/lint-tenant-scoping.ts) that fails CI on any unscoped query
+- [Releases](https://github.com/sebastianzabel/clokr/releases) with an SBOM per image
+- A [simulation environment](https://github.com/sebastianzabel/clokr/tree/main/apps/sim) where bots use the app and a nightly invariant checker looks for broken numbers
 
 **Homelab**: Proxmox and K3s, fully managed via ArgoCD (app of apps). My playground for new things, currently a vendor neutral RAG pipeline (Qdrant, FastEmbed, bge-m3).
 
